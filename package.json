@@ -1,3 +1,8 @@
 {
-  "packageManager": "yarn@3.5.1"
+  "name": "front-server",
+  "packageManager": "yarn@3.5.1",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }
