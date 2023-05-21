@@ -1915,7 +1915,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lib@workspace:packages/lib":
+"lib@workspace:^, lib@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "lib@workspace:packages/lib"
   dependencies:
@@ -2036,6 +2036,7 @@ __metadata:
     "@types/react-dom": 18.2.4
     eslint: 8.41.0
     eslint-config-next: 13.4.3
+    lib: "workspace:^"
     next: 13.4.3
     react: 18.2.0
     react-dom: 18.2.0
