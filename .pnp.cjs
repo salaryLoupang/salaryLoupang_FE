@@ -18,12 +18,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "my-app",\
         "reference": "workspace:apps/my-app"\
+      },\
+      {\
+        "name": "lib",\
+        "reference": "workspace:packages/lib"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["front-server", ["workspace:."]],\
+      ["lib", ["workspace:packages/lib"]],\
       ["my-app", ["workspace:apps/my-app"]]\
     ],\
     "fallbackPool": [\
@@ -2389,6 +2394,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-check", "npm:0.4.0"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["lib", [\
+        ["workspace:packages/lib", {\
+          "packageLocation": "./packages/lib/",\
+          "packageDependencies": [\
+            ["lib", "workspace:packages/lib"],\
+            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["locate-path", [\
