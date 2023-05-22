@@ -2166,6 +2166,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 5.0.4
+    ui: "workspace:^"
   languageName: unknown
   linkType: soft
 
@@ -3039,7 +3040,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui@workspace:packages/ui":
+"ui@workspace:^, ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "ui@workspace:packages/ui"
   dependencies:
