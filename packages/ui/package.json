@@ -1,6 +1,7 @@
 {
   "name": "ui",
   "packageManager": "yarn@3.5.1",
+  "main": "./src/index.ts",
   "devDependencies": {
     "@types/node": "^20.2.3",
     "@types/react": "^18.2.6",
