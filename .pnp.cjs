@@ -345,6 +345,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.2.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:20.2.3", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.2.3-0289426dd1-576065e8fc.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:20.2.3"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/prop-types", [\
@@ -3869,7 +3876,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:packages/ui", {\
           "packageLocation": "./packages/ui/",\
           "packageDependencies": [\
-            ["ui", "workspace:packages/ui"]\
+            ["ui", "workspace:packages/ui"],\
+            ["@types/node", "npm:20.2.3"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:d6412a5a3030b196b52ec80b5bf845b4ea8305234bb06f535889b675fdbd5da899f12ff4d28ab9e6455b1fcb61d9e8d00f2105af3b141e2b264ee412041b799a#npm:18.2.0"],\
+            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
           ],\
           "linkType": "SOFT"\
         }]\
