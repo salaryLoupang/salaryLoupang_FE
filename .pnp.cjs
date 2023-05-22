@@ -22,6 +22,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "lib",\
         "reference": "workspace:packages/lib"\
+      },\
+      {\
+        "name": "ui",\
+        "reference": "workspace:packages/ui"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -29,7 +33,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [\
       ["front-server", ["workspace:."]],\
       ["lib", ["workspace:packages/lib"]],\
-      ["my-app", ["workspace:apps/my-app"]]\
+      ["my-app", ["workspace:apps/my-app"]],\
+      ["ui", ["workspace:packages/ui"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -3858,6 +3863,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ui", [\
+        ["workspace:packages/ui", {\
+          "packageLocation": "./packages/ui/",\
+          "packageDependencies": [\
+            ["ui", "workspace:packages/ui"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["unbox-primitive", [\
