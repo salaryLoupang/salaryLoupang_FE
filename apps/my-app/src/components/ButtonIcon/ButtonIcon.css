@@ -1,0 +1,15 @@
+.btn-icon {
+    border: none;
+    background: none;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.btn-icon.arrow-right-icon {
+    background: url("./img/arrow-right.svg") center center no-repeat;
+}
+
+.btn-icon.arrow-left-icon {
+    background: url("./img/arrow-left.svg") center center no-repeat;
+}
