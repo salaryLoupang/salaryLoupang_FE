@@ -1,12 +1,32 @@
-// import { SessionProvider } from 'next-auth/react';
+import React from 'react';
+import { AppProps } from 'next/app';
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 
 import './index.css';
 
-export default function MyApp({
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+const MyApp: React.FC<AppProps> = ({
   Component,
-  pageProps: { session, ...pageProps },
-}) {
+  pageProps: { ...pageProps },
+}) => {
   const getLayout = Component.getLayout || (page => page);
+  return (
+    <QueryClientProvider client={client}>
+      <Hydrate state={pageProps.dehydratedState}>
+        {getLayout(<Component {...pageProps} />)}
+      </Hydrate>
+    </QueryClientProvider>
+  );
+};
 
-  return <Component />;
-}
+export default MyApp;
