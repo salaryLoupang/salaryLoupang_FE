@@ -1,0 +1,41 @@
+.ui-switch {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-switch  label{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 48px;
+    height: 28px;
+    border-radius: 14px;
+    background: #1351F0;
+}
+
+.ui-switch input{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    appearance: none;
+}
+
+.ui-switch label:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+}
+.ui-switch input:checked + label {
+    background: #A6A6A6;
+}
+.ui-switch input:checked + label:after {
+    left: 24px;
+}
