@@ -1,0 +1,36 @@
+.list {
+    margin-top: 22px;
+    display: block;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0px;
+}
+
+.list li {
+    position: relative;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+    line-height: 1.5;
+    list-style: none;
+}
+
+.list.default-style li {
+    margin-top: 12px;
+    padding-left: 32px;
+}
+
+.list.default-style li:first-child {
+    margin-top: 0;
+}
+
+.list.default-style li:after {             
+   content: '';
+   position: absolute;
+   width: 24px;
+   height: 24px; 
+   background:  #D9D9D9;
+   top: 0;
+   left: 0;
+}
+

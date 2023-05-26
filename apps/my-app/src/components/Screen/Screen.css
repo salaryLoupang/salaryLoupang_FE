@@ -1,0 +1,32 @@
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.screen-box {
+    width: 720px;
+    height: 400px;
+    border: 1px solid black;
+}
+
+.screen .screen-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.screen-item .item-left {
+    flex: auto;
+    text-align: left;
+    justify-self: flex-start
+}
+
+.screen-item .item-right {
+    flex: auto;
+    text-align: right;
+    justify-self: flex-end
+}
