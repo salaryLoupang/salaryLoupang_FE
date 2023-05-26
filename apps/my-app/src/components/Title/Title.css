@@ -1,0 +1,16 @@
+.default-title h1 {
+    font-weight: 700;
+    color:#212121;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.form-group + .default-title {
+    margin-top: 18px;
+}
+
+.info-title h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color:#212121;
+}
