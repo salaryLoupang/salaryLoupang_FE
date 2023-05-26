@@ -320,6 +320,47 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@tanstack/query-core", [\
+        ["npm:4.29.7", {\
+          "packageLocation": "./.yarn/cache/@tanstack-query-core-npm-4.29.7-f55047b190-f28441a1fc.zip/node_modules/@tanstack/query-core/",\
+          "packageDependencies": [\
+            ["@tanstack/query-core", "npm:4.29.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tanstack/react-query", [\
+        ["npm:4.29.7", {\
+          "packageLocation": "./.yarn/cache/@tanstack-react-query-npm-4.29.7-915f204251-9db2fb78e1.zip/node_modules/@tanstack/react-query/",\
+          "packageDependencies": [\
+            ["@tanstack/react-query", "npm:4.29.7"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:d6412a5a3030b196b52ec80b5bf845b4ea8305234bb06f535889b675fdbd5da899f12ff4d28ab9e6455b1fcb61d9e8d00f2105af3b141e2b264ee412041b799a#npm:4.29.7", {\
+          "packageLocation": "./.yarn/__virtual__/@tanstack-react-query-virtual-955aafbe81/0/cache/@tanstack-react-query-npm-4.29.7-915f204251-9db2fb78e1.zip/node_modules/@tanstack/react-query/",\
+          "packageDependencies": [\
+            ["@tanstack/react-query", "virtual:d6412a5a3030b196b52ec80b5bf845b4ea8305234bb06f535889b675fdbd5da899f12ff4d28ab9e6455b1fcb61d9e8d00f2105af3b141e2b264ee412041b799a#npm:4.29.7"],\
+            ["@tanstack/query-core", "npm:4.29.7"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["@types/react-native", null],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-native", null],\
+            ["use-sync-external-store", "virtual:955aafbe815689315ca760fe721acdff8a8d0f3252bfb95495a2bd6cd9d6d9a121db0977e50a5167ff1525300c0ec0fb9aa703a8606577a64255f4eb4df6a715#npm:1.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react-native",\
+            "@types/react",\
+            "react-dom",\
+            "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/json-schema", [\
         ["npm:7.0.11", {\
           "packageLocation": "./.yarn/cache/@types-json-schema-npm-7.0.11-79462ae5ca-527bddfe62.zip/node_modules/@types/json-schema/",\
@@ -2976,6 +3017,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/my-app/",\
           "packageDependencies": [\
             ["my-app", "workspace:apps/my-app"],\
+            ["@tanstack/react-query", "virtual:d6412a5a3030b196b52ec80b5bf845b4ea8305234bb06f535889b675fdbd5da899f12ff4d28ab9e6455b1fcb61d9e8d00f2105af3b141e2b264ee412041b799a#npm:4.29.7"],\
             ["@types/node", "npm:20.2.1"],\
             ["@types/react", "npm:18.2.6"],\
             ["@types/react-dom", "npm:18.2.4"],\
@@ -4019,6 +4061,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["uri-js", "npm:4.4.1"],\
             ["punycode", "npm:2.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["use-sync-external-store", [\
+        ["npm:1.2.0", {\
+          "packageLocation": "./.yarn/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "npm:1.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:955aafbe815689315ca760fe721acdff8a8d0f3252bfb95495a2bd6cd9d6d9a121db0977e50a5167ff1525300c0ec0fb9aa703a8606577a64255f4eb4df6a715#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-ae2c90fa39/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "virtual:955aafbe815689315ca760fe721acdff8a8d0f3252bfb95495a2bd6cd9d6d9a121db0977e50a5167ff1525300c0ec0fb9aa703a8606577a64255f4eb4df6a715#npm:1.2.0"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
