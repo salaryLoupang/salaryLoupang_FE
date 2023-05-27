@@ -16,6 +16,8 @@ import TravelInfo from './TravelInfo';
 const Main = () => {
   const [page, setPage] = React.useState('explore');
 
+  const [onOff, setOnOff] = React.useState(true);
+
   const renderScreen = () => {
     switch (page) {
       case 'explore':
@@ -36,19 +38,19 @@ const Main = () => {
       <Screen>
         <Screen.Item
           left={
-            <>
+            <div className="hover-container">
               <ButtonIcon icon="arrow-right" onClick={() => {}} />
               <div className="hover-box">
                 <Button shape="basic" variant="secondary" onClick={() => {}}>
                   닉네임 괴도님! 지금까지 00000원 루팡 하셨어요!
                 </Button>
               </div>
-            </>
+            </div>
           }
         />
         <Screen.Item
           left={
-            <>
+            <div className="hover-container">
               <ButtonIcon icon="arrow-right" onClick={() => {}} />
               <div className="hover-box">
                 <Button
@@ -102,21 +104,29 @@ const Main = () => {
                   여행정보수집
                 </Button>
               </div>
-            </>
+            </div>
           }
-          right={<Switch checked={true} onChange={() => {}} />}
+          right={
+            <Switch
+              id="onOff"
+              checked={onOff}
+              onChange={value => {
+                setOnOff(value);
+              }}
+            />
+          }
         />
-        <Screen.Box>{renderScreen()}</Screen.Box>
+        <Screen.Box on={onOff}>{onOff && renderScreen()}</Screen.Box>
         <Screen.Item
           right={
-            <>
+            <div className="hover-container">
               <ButtonIcon icon="arrow-left" onClick={() => {}} />
               <div className="hover-box">
                 <Button shape="basic" variant="primary">
                   배경설정하기
                 </Button>
               </div>
-            </>
+            </div>
           }
         />
       </Screen>

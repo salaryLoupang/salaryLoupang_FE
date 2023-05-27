@@ -8,6 +8,13 @@
 .screen-box {
     width: 720px;
     height: 400px;
+    opacity: 0;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.screen-box.on {
+    opacity: 1;
     border: 1px solid black;
 }
 
