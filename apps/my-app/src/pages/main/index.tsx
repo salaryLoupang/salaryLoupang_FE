@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import './Main.css';
 
@@ -14,6 +15,8 @@ import RecommandMenu from './RecommandMenu';
 import TravelInfo from './TravelInfo';
 
 const Main = () => {
+  const router = useRouter();
+
   const [page, setPage] = React.useState('explore');
 
   const renderScreen = () => {
@@ -106,7 +109,15 @@ const Main = () => {
         <Screen.Item
           right={
             <>
-              <Button shape="basic" variant="primary">
+              <Button
+                shape="basic"
+                variant="primary"
+                onClick={() => {
+                  router.push({
+                    pathname: '/setting',
+                  });
+                }}
+              >
                 배경설정하기
               </Button>
               <ButtonIcon icon="arrow-left" onClick={() => {}} />
