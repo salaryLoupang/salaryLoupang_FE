@@ -8,18 +8,25 @@ interface Option {
 }
 
 interface Props {
+  multi?: boolean;
   value: any;
   options: [];
   onChange(any): void;
 }
 
-const Select: React.FC<Props> = ({ value, options, onChange }) => {
+const Select: React.FC<Props> = ({
+  multi = false,
+  value,
+  options,
+  onChange,
+}) => {
   return (
-    <div className="ui-select">
+    <div className={`ui-select ${multi ? 'multi' : ''}`}>
       <select
+        multiple={multi}
         value={value}
         onChange={e => {
-          onChange(e.target.value);
+          onChange(!multi ? e.target.value : e.target.selectedOptions);
         }}
       >
         {options.map(option => {
