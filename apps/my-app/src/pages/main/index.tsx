@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import './Main.css';
 
@@ -16,6 +17,8 @@ import TravelInfo from './TravelInfo';
 import VSCODE from './img/vscode.png';
 
 const Main = () => {
+  const router = useRouter();
+
   const [page, setPage] = React.useState('explore');
 
   const [onOff, setOnOff] = React.useState(true);
@@ -129,7 +132,15 @@ const Main = () => {
             <div className="hover-container">
               <ButtonIcon icon="arrow-left" onClick={() => {}} />
               <div className="hover-box">
-                <Button shape="basic" variant="primary">
+                <Button 
+                  shape="basic" 
+                  variant="primary" 
+                  onClick={() => {
+                    router.push({
+                      pathname: '/setting',
+                    });
+                  }}
+                >
                   배경설정하기
                 </Button>
               </div>

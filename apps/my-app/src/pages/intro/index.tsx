@@ -4,7 +4,14 @@ import './Intro.css';
 
 import { Button } from 'components/Button';
 
+import { REDIRECT_URI } from 'api/constant';
+
 const Intro = () => {
+  const kakaologin = () => {
+    window.Kakao.Auth.authorize({
+      redirectUri: REDIRECT_URI,
+    });
+  };
   return (
     <div className="intro-page">
       <div className="intro-box">
@@ -15,7 +22,14 @@ const Intro = () => {
           <br />
           서비스를 이용해보세요.
         </h2>
-        <Button variant="kakao">카카오톡 로그인</Button>
+        <Button
+          variant="kakao"
+          onClick={() => {
+            kakaologin();
+          }}
+        >
+          카카오톡 로그인
+        </Button>
       </div>
     </div>
   );
