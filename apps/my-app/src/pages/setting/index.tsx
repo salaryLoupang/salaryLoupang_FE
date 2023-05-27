@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import './Setting.css';
 
@@ -10,6 +11,7 @@ import { Button } from 'components/Button';
 import { Thumbnail } from 'components/Thumbnail';
 
 const Setting = () => {
+  const router = useRouter();
   const [sample, setSample] = React.useState(0);
 
   const $imgFile = React.useRef(null);
@@ -106,7 +108,11 @@ const Setting = () => {
             shape="default"
             variant="primary"
             size="wide"
-            onClick={() => {}}
+            onClick={() => {
+              router.push({
+                pathname: '/main',
+              });
+            }}
           >
             루팡 시작하기
           </Button>
