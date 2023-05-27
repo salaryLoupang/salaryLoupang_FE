@@ -5,20 +5,20 @@ import { Content } from 'components/Content';
 
 import { getTravel } from 'api/requesTravel';
 
-export async function getStaticProps() {
-  const queryClient = new QueryClient();
+// export async function getStaticProps() {
+//   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(['travel'], getTravel);
+//   await queryClient.prefetchQuery(['travel'], getTravel);
 
-  return {
-    props: {
-      dehydrateState: dehydrate(queryClient),
-    },
-  };
-}
+//   return {
+//     props: {
+//       dehydrateState: dehydrate(queryClient),
+//     },
+//   };
+// }
 
 const TravelInfo = () => {
-  const { data: { data } = {} } = useQuery(['travel'], getTravel);
+  const { data: { data = {} } = {} } = useQuery(['travel'], getTravel);
 
   return (
     <Content
