@@ -14,7 +14,12 @@ const Kakao: NextPage = () => {
     try {
       const res: any = await postLogin({ code: authCode });
     } catch (e) {
-      router.push('/signup');
+      router.push({
+        pathname: '/signup',
+        query: {
+          code: authCode,
+        },
+      });
     }
   }, [router]);
 

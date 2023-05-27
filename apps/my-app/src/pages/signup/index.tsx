@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import './SignUp.css';
 
@@ -9,8 +10,84 @@ import { FormGroup } from 'components/FormGroup';
 import { Button } from 'components/Button';
 import { List } from 'components/List';
 
+import { postSignUp } from 'api/requestLogin';
+
+const getJabGroup = (job: number) => {
+  const jobs = {
+    0: [
+      {
+        value: 0,
+        text: '시각 디자이너',
+      },
+      {
+        value: 1,
+        text: '그래픽 디자이너',
+      },
+      {
+        value: 2,
+        text: 'UI/UX 디자이너',
+      },
+    ],
+    1: [
+      {
+        value: 3,
+        text: 'FE',
+      },
+      {
+        value: 4,
+        text: 'BE',
+      },
+      {
+        value: 5,
+        text: 'IOS',
+      },
+    ],
+    2: [
+      {
+        value: 6,
+        text: '서비스기획',
+      },
+      {
+        value: 7,
+        text: 'PM',
+      },
+      {
+        value: 8,
+        text: 'PO',
+      },
+    ],
+  };
+
+  return jobs[job] || [];
+};
+
 const SignUp = () => {
-  const [formValue, setFormValue] = React.useState({});
+  const router = useRouter();
+  const { code: authCode } = router.query;
+
+  const [formValue, setFormValue] = React.useState({
+    nickname: '',
+    career: 0,
+    job: 0,
+    jobGroup: [''],
+    salary: '',
+  });
+
+  const signUp = async () => {
+    try {
+      const dataValue = {
+        ...formValue,
+        jobGroup: formValue.jobGroup.join(','),
+      };
+      const res = await postSignUp({ code: authCode, ...dataValue });
+      console.log(res);
+    } catch (e) {
+      router.push({
+        pathname: '/setting',
+      });
+    }
+  };
+
   return (
     <div className="login-page">
       <div className="login-box">
@@ -18,28 +95,44 @@ const SignUp = () => {
         <FormGroup>
           <FormGroup.Title>닉네임 (한글 최대 6자)</FormGroup.Title>
           <FormGroup.Content>
-            <Input value="" onChange={() => {}} />
+            <Input
+              maxLength={6}
+              value={formValue.nickname}
+              onChange={value => {
+                setFormValue(formValue => {
+                  return {
+                    ...formValue,
+                    nickname: value,
+                  };
+                });
+              }}
+            />
           </FormGroup.Content>
         </FormGroup>
         <FormGroup>
           <FormGroup.Title>경력</FormGroup.Title>
           <FormGroup.Content>
             <Select
-              value={1}
+              multi={false}
+              value={formValue.career}
               options={[
                 {
-                  text: '디자인',
+                  value: 0,
+                  text: '신입',
+                },
+                {
                   value: 1,
-                },
-                {
-                  text: '개발',
-                  value: 2,
-                },
-                {
-                  text: '기획',
-                  value: 3,
+                  text: '경력',
                 },
               ]}
+              onChange={value => {
+                setFormValue(formValue => {
+                  return {
+                    ...formValue,
+                    career: Number(value),
+                  };
+                });
+              }}
             />
           </FormGroup.Content>
         </FormGroup>
@@ -47,35 +140,58 @@ const SignUp = () => {
           <FormGroup.Title>직군</FormGroup.Title>
           <FormGroup.Content>
             <Select
-              value={1}
+              multi={false}
+              value={formValue.job}
               options={[
                 {
+                  value: 0,
                   text: '디자인',
+                },
+                {
                   value: 1,
-                },
-                {
                   text: '개발',
-                  value: 2,
                 },
                 {
+                  value: 2,
                   text: '기획',
-                  value: 3,
                 },
               ]}
+              onChange={value => {
+                setFormValue(formValue => {
+                  return {
+                    ...formValue,
+                    job: Number(value),
+                    jabGroup: [''],
+                  };
+                });
+              }}
             />
           </FormGroup.Content>
         </FormGroup>
         <FormGroup>
           <FormGroup.Title>직무</FormGroup.Title>
           <FormGroup.Content>
+            {console.log(formValue.jobGroup)}
             <Select
-              value={''}
+              multi={true}
+              value={formValue.jobGroup.map(item => String(item)) || ''}
               options={[
                 {
-                  text: '',
-                  value: '(복수 선택 가능) 직무를 추가하세요',
+                  value: '',
+                  text: '(복수 선택 가능) 직무를 추가하세요',
                 },
+                ...getJabGroup(formValue.job),
               ]}
+              onChange={value => {
+                const result = Array.from(value, v => Number(v.value));
+
+                setFormValue(formValue => {
+                  return {
+                    ...formValue,
+                    jobGroup: result,
+                  };
+                });
+              }}
             />
           </FormGroup.Content>
         </FormGroup>
@@ -83,10 +199,28 @@ const SignUp = () => {
         <FormGroup>
           <FormGroup.Title>연봉(선택)</FormGroup.Title>
           <FormGroup.Content>
-            <Input value="" onChange={() => {}} />
+            <Input
+              type="number"
+              value={formValue.salary}
+              text="만원"
+              onChange={value => {
+                if (isNaN(value)) return;
+                setFormValue(formValue => {
+                  return {
+                    ...formValue,
+                    salary: Number(value),
+                  };
+                });
+              }}
+            />
           </FormGroup.Content>
         </FormGroup>
-        <Button variant="primary" onClick={() => {}}>
+        <Button
+          variant="primary"
+          onClick={() => {
+            signUp();
+          }}
+        >
           가입하기
         </Button>
       </div>
