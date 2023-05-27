@@ -19,7 +19,7 @@ const Switch: React.FC<Props> = ({ id, checked, onChange }) => {
           onChange(e.target.checked);
         }}
       />
-      <label htmlFor={id}>{id}</label>
+      <label htmlFor={id}></label>
     </div>
   );
 };
