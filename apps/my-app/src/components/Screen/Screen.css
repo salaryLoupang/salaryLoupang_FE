@@ -11,6 +11,7 @@
     opacity: 0;
     border: 1px solid transparent;
     box-sizing: border-box;
+    background: #fff;
 }
 
 .screen-box.on {

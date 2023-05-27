@@ -13,6 +13,8 @@ import GameB from './GameB';
 import RecommandMenu from './RecommandMenu';
 import TravelInfo from './TravelInfo';
 
+import VSCODE from './img/vscode.png';
+
 const Main = () => {
   const [page, setPage] = React.useState('explore');
 
@@ -34,7 +36,12 @@ const Main = () => {
   };
 
   return (
-    <div className="main-page">
+    <div
+      className="main-page"
+      style={{
+        backgroundImage: `url(${VSCODE.src})`,
+      }}
+    >
       <Screen>
         <Screen.Item
           left={
