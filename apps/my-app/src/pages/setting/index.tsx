@@ -4,17 +4,29 @@ import './Setting.css';
 
 import { Title } from 'components/Title';
 import { Input } from 'components/Form/Input';
+import { File } from 'components/Form/File';
 import { ButtonBox } from 'components/ButtonBox';
 import { Button } from 'components/Button';
 import { Thumbnail } from 'components/Thumbnail';
 
 const Setting = () => {
+  const [sample, setSample] = React.useState(0);
+
+  const $imgFile = React.useRef(null);
+  const [file, setFile] = React.useState(null);
+  const [fileImg, setFileImg] = React.useState(null);
+
   return (
     <div className="setting-page">
       <div className="setting-box">
         <Title shape="default">위장술에 쓸 배경을 골라봐요.</Title>
         <div className="setting-imgbox">
-          <div className="setting-img"></div>
+          <div
+            className="setting-img"
+            style={{
+              backgroundImage: fileImg ? `url(${fileImg})` : '',
+            }}
+          ></div>
           <div className="setting-info">
             <div className="setting-title">Tip</div>
             <div className="setting-text">
@@ -27,19 +39,66 @@ const Setting = () => {
           </div>
         </div>
         <Title shape="info">내가 직접 업로드하기</Title>
-        <div className="file">
-          <Input value="" onChange={() => {}} />
-          <Button shape="default" variant="secondary">
-            파일 선택하기
-          </Button>
-        </div>
+        <File
+          ref={$imgFile}
+          id="settingImg"
+          value={file}
+          onChange={() => {
+            const file = $imgFile.current.files[0];
+            setFile(file);
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+              setFileImg(reader.result);
+            };
+          }}
+        />
 
         <div className="setting-warning">배경이미지 크기 권장 1440*800</div>
         <Title shape="info">샘플배경 고르기</Title>
         <div className="setting-list">
-          <Thumbnail title="VS code">sdgg</Thumbnail>
-          <Thumbnail>sdgg</Thumbnail>
-          <Thumbnail>sdgg</Thumbnail>
+          <Thumbnail
+            title="VS code"
+            on={sample === 0}
+            onClick={() => {
+              setSample(0);
+            }}
+          ></Thumbnail>
+          <Thumbnail
+            title="Figma"
+            on={sample === 1}
+            onClick={() => {
+              setSample(1);
+            }}
+          ></Thumbnail>
+          <Thumbnail
+            title="Power point"
+            on={sample === 2}
+            onClick={() => {
+              setSample(2);
+            }}
+          ></Thumbnail>
+          <Thumbnail
+            title="Photoshop"
+            on={sample === 3}
+            onClick={() => {
+              setSample(3);
+            }}
+          ></Thumbnail>
+          <Thumbnail
+            title="Excel"
+            on={sample === 4}
+            onClick={() => {
+              setSample(4);
+            }}
+          ></Thumbnail>
+          <Thumbnail
+            title="Word"
+            on={sample === 5}
+            onClick={() => {
+              setSample(5);
+            }}
+          ></Thumbnail>
         </div>
 
         <ButtonBox>

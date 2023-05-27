@@ -1,4 +1,7 @@
 .thumbnail {
+    display: inline-block;
+}
+.thumbnail .thumbnail-img {
     overflow: hidden;
     width: 120px;
     height: 120px;
@@ -7,6 +10,15 @@
     box-sizing: border-box;
 }
 
-.thumbnail.on {
+.thumbnail.on .thumbnail-img {
     outline: 4px solid #1351F0;
+}
+
+.thumbnail .thumbnail-title {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 400;   
+    color: #212121;
+    line-height: 1.5;
+    text-align: center;
 }
