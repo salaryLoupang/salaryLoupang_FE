@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Login.css';
+import './SignUp.css';
 
 import { Title } from 'components/Title';
 import { Input } from 'components/Form/Input';
@@ -9,7 +9,7 @@ import { FormGroup } from 'components/FormGroup';
 import { Button } from 'components/Button';
 import { List } from 'components/List';
 
-const Login = () => {
+const SignUp = () => {
   const [formValue, setFormValue] = React.useState({});
   return (
     <div className="login-page">
@@ -116,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
