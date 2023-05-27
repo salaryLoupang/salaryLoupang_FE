@@ -20,13 +20,16 @@
 }
 
 .screen-item .item-left {
+    display: flex;
     flex: auto;
     text-align: left;
     justify-self: flex-start
 }
 
 .screen-item .item-right {
+    display: flex;
     flex: auto;
     text-align: right;
-    justify-self: flex-end
+    justify-self: flex-end;
+    flex-direction: row-reverse;
 }
