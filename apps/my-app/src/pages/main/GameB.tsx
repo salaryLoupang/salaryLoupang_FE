@@ -5,7 +5,7 @@ const GameB = () => {
     <iframe
       width="100%"
       height="100%"
-      src="https://woojuu.tistory.com/"
+      src="https://archive.org/details/msdos_Prehistorik_2_1993"
     ></iframe>
   );
 };
