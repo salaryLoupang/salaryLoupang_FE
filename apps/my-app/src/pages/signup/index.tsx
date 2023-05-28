@@ -63,7 +63,6 @@ const getJabGroup = (job: number) => {
 
 const SignUp = () => {
   const router = useRouter();
-  const { code: authCode } = router.query;
 
   const [formValue, setFormValue] = React.useState({
     nickname: '',
@@ -79,8 +78,7 @@ const SignUp = () => {
         ...formValue,
         jobGroup: formValue.jobGroup.join(','),
       };
-      const res = await postSignUp({ code: authCode, ...dataValue });
-      console.log(res);
+      const res = await postSignUp({ ...dataValue });
     } catch (e) {
       router.push({
         pathname: '/setting',
@@ -171,7 +169,6 @@ const SignUp = () => {
         <FormGroup>
           <FormGroup.Title>직무</FormGroup.Title>
           <FormGroup.Content>
-            {console.log(formValue.jobGroup)}
             <Select
               multi={true}
               value={formValue.jobGroup.map(item => String(item)) || ''}

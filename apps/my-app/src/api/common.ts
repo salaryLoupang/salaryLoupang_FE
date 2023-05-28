@@ -10,10 +10,18 @@ export const ajaxRequest = ({
   querystring,
   body,
 }) => {
+  const loginToken = localStorage.getItem('access_token');
+
   let axiosOptions = {
     method,
     url: `${URL.API_SERVER}${url}${param ? `/${param}` : ''}`,
   };
+
+  if (loginToken) {
+    axiosOptions.headers = {
+      Authorization: loginToken,
+    };
+  }
 
   if (body) {
     axiosOptions.data = body;
