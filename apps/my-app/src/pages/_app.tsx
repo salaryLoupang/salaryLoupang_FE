@@ -7,6 +7,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 
+import { JAVASCRIPT } from 'api/constant';
+
 import './index.css';
 
 declare global {
@@ -29,7 +31,7 @@ const MyApp: React.FC<AppProps> = ({
   const getLayout = Component.getLayout || (page => page);
 
   function kakaoInit() {
-    window.Kakao.init('9d355839d37fbfe2655b49e440d0d303');
+    window.Kakao.init(JAVASCRIPT);
 
   }
 
