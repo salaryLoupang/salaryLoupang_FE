@@ -12,13 +12,25 @@ const Kakao: NextPage = () => {
   const callback = React.useCallback(async () => {
     if (!authCode) return;
     try {
-      const res: any = await postLogin({ code: authCode });
-    } catch (e) {
+      const { data = {} } = await postLogin({ code: authCode });
+
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
+
+      if (data.signupFlag) {
+        router.push({
+          pathname: '/signup',
+        });
+        return;
+      }
+
       router.push({
-        pathname: '/signup',
-        query: {
-          code: authCode,
-        },
+        pathname: '/main',
+      });
+    } catch (e) {
+      console.log(e);
+      router.push({
+        pathname: '/',
       });
     }
   }, [router]);

@@ -8,24 +8,18 @@ export const postLogin = ({ code }: { code: string }) => {
   });
 };
 
-export const postSignUp = ({
-  code,
-  nickname,
-  career,
-  job,
-  jobGroup,
-  salary,
-}) => {
+export const postSignUp = ({ nickname, career, job, jobGroup, salary }) => {
   return ajaxRequest({
     method: 'post',
     url: '/v1/api/signup',
     body: {
-      authorizationCode: code,
-      nickname,
-      career,
-      job,
-      jobGroup,
-      salary,
+      params: {
+        nickname,
+        career,
+        job,
+        jobGroup,
+        salary: salary || 0,
+      },
     },
   });
 };
