@@ -4,6 +4,7 @@
     width: 32px;
     height: 32px;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .btn-icon.arrow-right-icon {

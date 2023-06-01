@@ -1,0 +1,14 @@
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;;
+}
+
+.icon.icon-arrow-right {
+    background: url('./img/icon-arrow-right.svg') center center no-repeat;       
+}
+
+.icon.icon-kakao-talk {
+    background: url('./img/icon-kakao-talk.svg') center center no-repeat;       
+}

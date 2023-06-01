@@ -3,12 +3,17 @@
     color:#212121;
     font-size: 20px;
     line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .form-group + .default-title {
     margin-top: 18px;
 }
 
+.info-title {
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
 .info-title h1 {
     font-size: 18px;
     font-weight: 600;
