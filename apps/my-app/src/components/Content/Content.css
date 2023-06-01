@@ -1,6 +1,7 @@
 .content {
     width: 100%;
     height: 100%;
+    overflow-y: auto;
     padding: 30px;
     background: #fff;
     box-sizing: border-box;
@@ -15,8 +16,12 @@
 }
 
 .content-img {
+    max-width: 200px;
     padding-top: 23px;
     padding-left: 20px;
+}
+.content-img img {
+    width: 100%;
 }
 
 .content-article-title {

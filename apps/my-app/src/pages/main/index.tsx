@@ -39,82 +39,81 @@ const Main = () => {
   };
 
   return (
-    <div
-      className="main-page"
-      style={{
-        backgroundImage: `url(${VSCODE.src})`,
-      }}
-    >
+    <div className="main-page">
       <Screen>
         <Screen.Item
           left={
-            <div className="hover-container">
+            <>
               <ButtonIcon icon="arrow-right" onClick={() => {}} />
-              <div className="hover-box">
-                <Button shape="basic" variant="secondary" onClick={() => {}}>
-                  닉네임 괴도님! 지금까지 00000원 루팡 하셨어요!
-                </Button>
-              </div>
-            </div>
+              {onOff && (
+                <div className="hover-box">
+                  <Button shape="basic" variant="secondary" onClick={() => {}}>
+                    닉네임 괴도님! 지금까지 00000원 루팡 하셨어요!
+                  </Button>
+                </div>
+              )}
+            </>
           }
         />
         <Screen.Item
           left={
-            <div className="hover-container">
+            <>
               <ButtonIcon icon="arrow-right" onClick={() => {}} />
-              <div className="hover-box">
-                <Button
-                  shape="basic"
-                  variant={page === 'explore' ? 'primary' : 'secondary'}
-                  onClick={() => {
-                    if (page === 'explore') return;
-                    setPage('explore');
-                  }}
-                >
-                  검색하기
-                </Button>
-                <Button
-                  shape="basic"
-                  variant={page === 'gamea' ? 'primary' : 'secondary'}
-                  onClick={() => {
-                    if (page === 'gamea') return;
-                    setPage('gamea');
-                  }}
-                >
-                  게임1
-                </Button>
-                <Button
-                  shape="basic"
-                  variant={page === 'gameb' ? 'primary' : 'secondary'}
-                  onClick={() => {
-                    if (page === 'gameb') return;
-                    setPage('gameb');
-                  }}
-                >
-                  게임2
-                </Button>
-                <Button
-                  shape="basic"
-                  variant={page === 'recommandmenu' ? 'primary' : 'secondary'}
-                  onClick={() => {
-                    if (page === 'recommandmenu') return;
-                    setPage('recommandmenu');
-                  }}
-                >
-                  점심메뉴추천
-                </Button>
-                <Button
-                  shape="basic"
-                  variant={page === 'travelinfo' ? 'primary' : 'secondary'}
-                  onClick={() => {
-                    if (page === 'travelinfo') return;
-                    setPage('travelinfo');
-                  }}
-                >
-                  여행정보수집
-                </Button>
-              </div>
-            </div>
+              {onOff && (
+                <div className="hover-box">
+                  <Button
+                    shape="basic"
+                    variant={page === 'explore' ? 'primary' : 'secondary'}
+                    onClick={() => {
+                      if (page === 'explore') return;
+                      setPage('explore');
+                    }}
+                  >
+                    검색하기
+                  </Button>
+                  <Button
+                    shape="basic"
+                    variant={page === 'gamea' ? 'primary' : 'secondary'}
+                    onClick={() => {
+                      if (page === 'gamea') return;
+                      setPage('gamea');
+                    }}
+                  >
+                    게임1
+                  </Button>
+                  <Button
+                    shape="basic"
+                    variant={page === 'gameb' ? 'primary' : 'secondary'}
+                    onClick={() => {
+                      if (page === 'gameb') return;
+                      setPage('gameb');
+                    }}
+                  >
+                    게임2
+                  </Button>
+                  <Button
+                    shape="basic"
+                    variant={page === 'recommandmenu' ? 'primary' : 'secondary'}
+                    onClick={() => {
+                      if (page === 'recommandmenu') return;
+                      setPage('recommandmenu');
+                    }}
+                  >
+                    점심메뉴추천
+                  </Button>
+                  <Button
+                    shape="basic"
+                    variant={page === 'travelinfo' ? 'primary' : 'secondary'}
+                    onClick={() => {
+                      if (page === 'travelinfo') return;
+                      setPage('travelinfo');
+                    }}
+                  >
+                    여행정보수집
+                  </Button>
+                </div>
+              )}
+            </>
           }
           right={
             <Switch
@@ -126,25 +125,27 @@ const Main = () => {
             />
           }
         />
-        <Screen.Box on={onOff}>{onOff && renderScreen()}</Screen.Box>
+        <Screen.Box on={true}>{renderScreen()}</Screen.Box>
         <Screen.Item
           right={
-            <div className="hover-container">
+            <>
               <ButtonIcon icon="arrow-left" onClick={() => {}} />
-              <div className="hover-box">
-                <Button 
-                  shape="basic" 
-                  variant="primary" 
-                  onClick={() => {
-                    router.push({
-                      pathname: '/setting',
-                    });
-                  }}
-                >
-                  배경설정하기
-                </Button>
-              </div>
-            </div>
+              {onOff && (
+                <div className="hover-box">
+                  <Button
+                    shape="basic"
+                    variant="primary"
+                    onClick={() => {
+                      router.push({
+                        pathname: '/setting',
+                      });
+                    }}
+                  >
+                    배경설정하기
+                  </Button>
+                </div>
+              )}
+            </>
           }
         />
       </Screen>

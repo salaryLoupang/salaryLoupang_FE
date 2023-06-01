@@ -29,8 +29,26 @@
    position: absolute;
    width: 24px;
    height: 24px; 
-   background:  #D9D9D9;
    top: 0;
    left: 0;
 }
 
+.list.default-style li.icon-book:after {
+    background: url('./img/icon-book.svg') center center no-repeat;
+}
+
+.list.default-style li.icon-idea:after {
+    background: url('./img/icon-idea.svg') center center no-repeat;
+}
+
+.list.default-style li.icon-magic:after {
+    background: url('./img/icon-magic.svg') center center no-repeat;
+}
+
+.list.default-style li.icon-moon:after {
+    background: url('./img/icon-moon.svg') center center no-repeat;
+}
+
+.list.default-style li.icon-unicon:after {
+    background: url('./img/icon-unicon.svg') center center no-repeat;
+}

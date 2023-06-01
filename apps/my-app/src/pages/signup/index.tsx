@@ -8,9 +8,13 @@ import { Input } from 'components/Form/Input';
 import { Select } from 'components/Form/Select';
 import { FormGroup } from 'components/FormGroup';
 import { Button } from 'components/Button';
+import { Icon } from 'components/Icon';
 import { List } from 'components/List';
 
 import { postSignUp } from 'api/requestLogin';
+
+import Logo from './img/logo.svg';
+import Lougpang from './img/img-loupang.svg';
 
 const getJabGroup = (job: number) => {
   const jobs = {
@@ -86,6 +90,14 @@ const SignUp = () => {
     }
   };
 
+  const getValidation = React.useCallback(() => {
+    if (!formValue.nickname.length) return false;
+    if (!formValue.jobGroup?.length || formValue.jobGroup.indexOf('') !== -1)
+      return false;
+
+    return true;
+  }, [formValue]);
+
   return (
     <div className="login-page">
       <div className="login-box">
@@ -159,7 +171,7 @@ const SignUp = () => {
                   return {
                     ...formValue,
                     job: Number(value),
-                    jabGroup: [''],
+                    jobGroup: [''],
                   };
                 });
               }}
@@ -214,6 +226,8 @@ const SignUp = () => {
         </FormGroup>
         <Button
           variant="primary"
+          disabled={!getValidation()}
+          iconRight={<Icon icon="arrow-right" />}
           onClick={() => {
             signUp();
           }}
@@ -222,26 +236,32 @@ const SignUp = () => {
         </Button>
       </div>
       <div className="login-info">
-        <div class="login-img"></div>
+        <div className="login-img">
+          <img src={Logo.src} alt="loupang" />
+        </div>
         <Title shape="default">
           어서오세요. 오늘도 선량한 월급 도둑이 될게요!
         </Title>
         <List shape="default">
-          <List.Item>
+          <List.Item icon="magic">
             딴짓을 숨길 수 있는 바탕화면 위장술을 쓸 수 있어요.
           </List.Item>
-          <List.Item>
+          <List.Item icon="unicon">
             얼른 지루한 시간을 보낼 수 있는 미니게임을 해봐요.
           </List.Item>
-          <List.Item>
+          <List.Item icon="book">
             점심시간이 한참 남았을 때는 추천메뉴를 찾아봐요.
           </List.Item>
-          <List.Item>다가올 휴가계획을 남몰래 짜볼 수 있어요.</List.Item>
-          <List.Item>
+          <List.Item icon="idea">
+            다가올 휴가계획을 남몰래 짜볼 수 있어요.
+          </List.Item>
+          <List.Item icon="moon">
             얼마나 열심히 일 안하고 돈을 벌었는지 체크 해볼까요?
           </List.Item>
         </List>
-        <div class="login-img"></div>
+        <div className="login-img">
+          <img src={Lougpang.src} alt="loupang" />
+        </div>
       </div>
     </div>
   );
