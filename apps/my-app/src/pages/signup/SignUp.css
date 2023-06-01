@@ -1,8 +1,9 @@
 .login-page {
+    margin-top: 29px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 100px
+    gap: 105px
 }
 
 .login-box {
@@ -20,13 +21,11 @@
 }
 
 .login-img {
-    width: 200px;
-    height: 100px;
-    background: #D9D9D9;
-    margin-top: 10px;
-    margin-bottom: 16px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
-.list + .login-img{
-    margin-top: 95px;
+.list + .login-img {
+    margin-top: 103px;
+    margin-left: 20px;
 }
