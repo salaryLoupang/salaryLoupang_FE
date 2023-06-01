@@ -1,16 +1,31 @@
 .main-page{
     width: 100vw;
     height: 100vh;
-    background-repeat: no-repeat;
-    background-position: top left;
+    background: url('./img/bg-main-piece.png') 90px -56px  repeat-x, 
+                url('./img/bg-main-piece.png') -74px 82px repeat-x,
+                url('./img/bg-main-piece.png') 90px 229px repeat-x,
+                url('./img/bg-main-piece.png') -74px 376px repeat-x,
+                url('./img/bg-main-piece.png') 90px 605px repeat-x,
+                url('./img/bg-main-piece.png') -74px 834px repeat-x,
+                url('./img/bg-main-piece.png') 90px 1063px repeat-x,
+                url('./img/bg-main-piece.png') -74px 1292px repeat-x,
+                url('./img/bg-main-piece.png') 90px 1521px repeat-x,
+                url('./img/bg-main-piece.png') -74px 1750px repeat-x,
+                url('./img/bg-main-piece.png') -74px 1979px repeat-x,
+                #fff;
+   
 }
 
 .hover-box {
     display: inline-block;
-    opacity: 0;
-    pointer-events: none;
     transition: all .3s;
+    transform: translateX(0);
 }
+
+.hover-box .btn + .btn {
+    margin-left: 8px;
+}
+
 .hover-container:hover .hover-box{
     opacity: 1;
     pointer-events: all;
@@ -18,7 +33,7 @@
 }
 
 .btn-icon.arrow-right-icon + .hover-box {
-    transform: translateX(-100%);
+    /* transform: translateX(-100%); */
 }
 
 .hover-container:hover .btn-icon.arrow-right-icon + .hover-box{
@@ -27,7 +42,7 @@
 }
 
 .btn-icon.arrow-left-icon + .hover-box {
-    transform: translateX(100%);
+    /* transform: translateX(100%); */
 }
 
 .hover-container:hover  .btn-icon.arrow-left-icon + .hover-box{
