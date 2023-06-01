@@ -5,6 +5,7 @@
     border-radius: 5px;
     background: #fff;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .ui-select select{
     width: 100%;
