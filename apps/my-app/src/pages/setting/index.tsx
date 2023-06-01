@@ -4,11 +4,17 @@ import { useRouter } from 'next/router';
 import './Setting.css';
 
 import { Title } from 'components/Title';
-import { Input } from 'components/Form/Input';
 import { File } from 'components/Form/File';
 import { ButtonBox } from 'components/ButtonBox';
 import { Button } from 'components/Button';
 import { Thumbnail } from 'components/Thumbnail';
+
+import IMG_VSCODE from './img/thumbnail-vscode.png';
+import IMG_FIGMA from './img/thumbnail-figma.png';
+import IMG_PHOTOSHOP from './img/thumbnail-photoshop.png';
+import IMG_POWERPOINT from './img/thumbnail-powerpoint.png';
+import IMG_EXCEL from './img/thumbnail-excel.png';
+import IMG_WORD from './img/thumbnail-word.png';
 
 const Setting = () => {
   const router = useRouter();
@@ -65,42 +71,54 @@ const Setting = () => {
             onClick={() => {
               setSample(0);
             }}
-          ></Thumbnail>
+          >
+            <img src={IMG_VSCODE.src} alt="vscode" />
+          </Thumbnail>
           <Thumbnail
             title="Figma"
             on={sample === 1}
             onClick={() => {
               setSample(1);
             }}
-          ></Thumbnail>
+          >
+            <img src={IMG_FIGMA.src} alt="figma" />
+          </Thumbnail>
           <Thumbnail
             title="Power point"
             on={sample === 2}
             onClick={() => {
               setSample(2);
             }}
-          ></Thumbnail>
+          >
+            <img src={IMG_POWERPOINT.src} alt="power point" />
+          </Thumbnail>
           <Thumbnail
             title="Photoshop"
             on={sample === 3}
             onClick={() => {
               setSample(3);
             }}
-          ></Thumbnail>
+          >
+            <img src={IMG_PHOTOSHOP.src} alt="photoshop" />
+          </Thumbnail>
           <Thumbnail
             title="Excel"
             on={sample === 4}
             onClick={() => {
               setSample(4);
             }}
-          ></Thumbnail>
+          >
+            <img src={IMG_EXCEL.src} alt="excel" />
+          </Thumbnail>
           <Thumbnail
             title="Word"
             on={sample === 5}
             onClick={() => {
               setSample(5);
             }}
-          ></Thumbnail>
+          >
+            <img src={IMG_WORD.src} alt="word" />
+          </Thumbnail>
         </div>
 
         <ButtonBox>
