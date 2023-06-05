@@ -10,7 +10,7 @@ export const ajaxRequest = ({
   querystring,
   body,
 }) => {
-  const loginToken = localStorage.getItem('access_token');
+  const loginToken = localStorage.getItem('accessToken');
 
   let axiosOptions = {
     method,
