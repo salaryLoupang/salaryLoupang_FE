@@ -16,12 +16,29 @@ import TravelInfo from './TravelInfo';
 
 import VSCODE from './img/vscode.png';
 
+import { getLoupang } from 'api/requestLoupang';
+
 const Main = () => {
   const router = useRouter();
 
   const [page, setPage] = React.useState('explore');
+  const [nickname, setNickname] = React.useState('');
+  const [loupang, setLoupang] = React.useState({
+    salary: 0,
+    time: 0,
+  });
 
   const [onOff, setOnOff] = React.useState(true);
+
+  const requestLoupang = () => {
+    getLoupang().then(data => {
+      setNickname(data.nickname);
+      setLoupang({
+        salary: data.loupangSalary,
+        time: data.loupangTime,
+      });
+    });
+  };
 
   const renderScreen = () => {
     switch (page) {
@@ -38,6 +55,10 @@ const Main = () => {
     }
   };
 
+  React.useEffect(() => {
+    requestLoupang();
+  }, []);
+
   return (
     <div className="main-page">
       <Screen>
@@ -48,7 +69,8 @@ const Main = () => {
               {onOff && (
                 <div className="hover-box">
                   <Button shape="basic" variant="secondary" onClick={() => {}}>
-                    닉네임 괴도님! 지금까지 00000원 루팡 하셨어요!
+                    {nickname} 괴도님! 지금까지 {loupang.salary || 0}원 루팡
+                    하셨어요!
                   </Button>
                 </div>
               )}
