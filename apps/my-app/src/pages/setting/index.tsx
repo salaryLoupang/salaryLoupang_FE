@@ -16,6 +16,8 @@ import IMG_POWERPOINT from './img/thumbnail-powerpoint.png';
 import IMG_EXCEL from './img/thumbnail-excel.png';
 import IMG_WORD from './img/thumbnail-word.png';
 
+import { postImageNum } from 'api/requestImage';
+
 const Setting = () => {
   const router = useRouter();
   const [sample, setSample] = React.useState(0);
@@ -23,6 +25,14 @@ const Setting = () => {
   const $imgFile = React.useRef(null);
   const [file, setFile] = React.useState(null);
   const [fileImg, setFileImg] = React.useState(null);
+
+  const settingImgNum = () => {
+    postImageNum({ imageNum: sample }).then(() => {
+      router.push({
+        pathname: '/main',
+      });
+    });
+  };
 
   return (
     <div className="setting-page">
@@ -127,9 +137,7 @@ const Setting = () => {
             variant="primary"
             size="wide"
             onClick={() => {
-              router.push({
-                pathname: '/main',
-              });
+              settingImgNum();
             }}
           >
             루팡 시작하기
