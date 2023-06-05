@@ -17,7 +17,7 @@ const Kakao: NextPage = () => {
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
 
-      if (data.signupFlag) {
+      if (!data.signupFlag) {
         router.push({
           pathname: '/signup',
         });
@@ -25,7 +25,7 @@ const Kakao: NextPage = () => {
       }
 
       router.push({
-        pathname: '/main',
+        pathname: '/setting',
       });
     } catch (e) {
       console.log(e);

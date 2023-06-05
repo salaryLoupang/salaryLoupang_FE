@@ -34,29 +34,29 @@ const getJabGroup = (job: number) => {
     ],
     1: [
       {
-        value: 3,
+        value: 0,
         text: 'FE',
       },
       {
-        value: 4,
+        value: 1,
         text: 'BE',
       },
       {
-        value: 5,
+        value: 2,
         text: 'IOS',
       },
     ],
     2: [
       {
-        value: 6,
+        value: 0,
         text: '서비스기획',
       },
       {
-        value: 7,
+        value: 1,
         text: 'PM',
       },
       {
-        value: 8,
+        value: 2,
         text: 'PO',
       },
     ],
@@ -80,12 +80,15 @@ const SignUp = () => {
     try {
       const dataValue = {
         ...formValue,
-        jobGroup: formValue.jobGroup.join(','),
+        jobGroup: formValue.jobGroup[0],
       };
-      const res = await postSignUp({ ...dataValue });
-    } catch (e) {
+      await postSignUp({ ...dataValue });
       router.push({
         pathname: '/setting',
+      });
+    } catch (e) {
+      router.push({
+        pathname: '/intro',
       });
     }
   };

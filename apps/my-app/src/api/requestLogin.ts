@@ -13,13 +13,11 @@ export const postSignUp = ({ nickname, career, job, jobGroup, salary }) => {
     method: 'post',
     url: '/v1/api/signup',
     body: {
-      params: {
-        nickname,
-        career,
-        job,
-        jobGroup,
-        salary: salary || 0,
-      },
+      nickname,
+      career,
+      job,
+      jobGroup,
+      salary: salary || 0,
     },
   });
 };
