@@ -25,7 +25,7 @@ const Kakao: NextPage = () => {
       }
 
       router.push({
-        pathname: '/setting',
+        pathname: '/main',
       });
     } catch (e) {
       console.log(e);
