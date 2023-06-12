@@ -5,20 +5,20 @@ import { Content } from 'components/Content';
 
 import { getMenu } from 'api/requestMenu';
 
-// export async function getStaticProps() {
-//   const queryClient = new QueryClient();
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
 
-//   await queryClient.prefetchQuery(['menu'], getMenu);
+  await queryClient.prefetchQuery(['menu'], getMenu);
 
-//   return {
-//     props: {
-//       dehydrateState: dehydrate(queryClient),
-//     },
-//   };
-// }
+  return {
+    props: {
+      dehydrateState: dehydrate(queryClient),
+    },
+  };
+}
 
 const RecommandMenu = () => {
-  const { data: { data = {} } = {} } = useQuery(['menu'], getMenu);
+  const { data: { data } = {} } = useQuery(['menu'], getMenu);
 
   return (
     <Content
